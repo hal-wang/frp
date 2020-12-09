@@ -1,5 +1,5 @@
 import Humanize from 'humanize-plus'
-import echarts from 'echarts/lib/echarts'
+import echarts from 'echarts'
 
 import 'echarts/theme/macarons'
 import 'echarts/lib/chart/bar'

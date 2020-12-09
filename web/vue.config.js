@@ -55,5 +55,14 @@ module.exports = {
       .end()
 
     config.when(process.env.NODE_ENV === 'development', config => config.devtool('eval-source-map'))
+  },
+  configureWebpack: {
+    externals: {
+      vue: 'Vue',
+      vuex: 'Vuex',
+      'vue-router': 'VueRouter',
+      'element-ui': 'ELEMENT',
+      echarts: 'echarts'
+    }
   }
 }
