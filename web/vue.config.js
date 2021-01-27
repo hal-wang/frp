@@ -1,4 +1,5 @@
 const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin')
 const appType = process.env.VUE_APP_TYPE
 
 function resolve(dir) {
@@ -65,6 +66,19 @@ module.exports = {
             name: 'manifest'
           }
         }
+      }
+    }
+    if (process.env.NODE_ENV === 'production') {
+      return {
+        plugins: [
+          new CompressionPlugin({
+            algorithm: 'gzip',
+            test: /\.(js|css)$/,
+            threshold: 10240,
+            deleteOriginalAssets: true,
+            minRatio: 0.8
+          })
+        ]
       }
     }
   },
